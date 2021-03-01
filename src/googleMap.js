@@ -5,11 +5,21 @@ class GoogleMap {
     this.long = long
   }
 
-  initMap(lat, long) {
-    map = new google.maps.Map(document.getElementById("map"), {
+  initMap(locations) {
+      map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: this.lat, lng: this.long },
       zoom: 8,
     });
+    return map
+    // initMarkers(map, locations)
   }
+
+  initMarkers(loc) {
+      new google.maps.Marker({
+        position: { lat: parseFloat(loc.lat), lng: parseFloat(loc.long) },
+        map: map
+    })
+  }
+
 
 }
