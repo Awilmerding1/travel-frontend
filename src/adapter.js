@@ -28,10 +28,10 @@ class API {
 
   getTrip = id => fetch(`${this.tripsURL}/${id}`).then(this.parseJSON)
 
-  postTrip = (trip, location) => fetch(this.tripsURL, {
+  postTrip = body => fetch(this.tripsURL, {
     method: "POST",
     headers: this.headers,
-    body: JSON.stringify({trip, location})
+    body: JSON.stringify(body)
   }).then(this.parseJSON)
 
   updateTrip = body => fetch(`${this.tripsURL}/${body.id}`, {
