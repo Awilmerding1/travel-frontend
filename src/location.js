@@ -43,8 +43,7 @@ class Location {
 
 
     static fetchLocations() {
-      fetch('http://localhost:3000/locations')
-      .then(r => r.json())
+      new Adapter().getAllLocations()
       .then(locs => {
         locs.forEach(loc => new Location(loc))
       })

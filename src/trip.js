@@ -41,15 +41,7 @@ class Trip {
     const content = document.getElementById('conInput')
     const date = document.getElementById('dateInput')
     const trip = {location, content, date}
-    fetch("http://localhost:3000/trips", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": 'application/json'
-      },
-      body: JSON.stringify({trip})
-    })
-    .then(r => r.json())
+    new Adapter().postTrip({trip})
     .then(trip => {
       const loc = Location.find(loc => loc.id === trip.location_id) || new Location(trip.location)
       loc.addTrip(trip)
