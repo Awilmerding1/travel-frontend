@@ -37,6 +37,7 @@ class Location {
         li.id = loc.id
         locContainer.append(li)
          document.getElementById(loc.id).addEventListener('click', loc.renderLocation.bind(loc))
+         googleMap.initMarkers(loc)
       })
     }
 
